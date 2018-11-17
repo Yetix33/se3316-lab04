@@ -4,11 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CoursesService {
-  getCourses(): string[]{
-    return ["Science", "Math", "Business"]
-    
+  courses;
+  constructor() { 
+    this.courses = ["Science", "Math", "Business"];
   }
-
-
-  constructor() { }
+  
+  getCourses(): string[]{
+    return this.courses;
+  }
+  
+  onSave(item: string): void{
+    this.courses.push(item.toString());
+    return;
+  }
+  
 }
